@@ -1,70 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@color/background"
-    android:weightSum="5">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:id="@+id/back_linear_layout"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="125dp"
-        android:padding="20dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/back_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_arrow_back_ios_black_18" />
-
-        <TextView
-            android:id="@+id/mess_name"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="10dp"
-            android:gravity="center_vertical"
-            android:text="Dhruvankur Mess">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/background"
+            android:weightSum="5">
 
-        </TextView>
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/back_linear_layout"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:orientation="vertical">
 
-    <com.github.captain_miao.optroundcardview.OptRoundCardView
-        android:id="@+id/optRoundCardView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:optRoundCardRightTopCorner="true"
-        app:optRoundCardLeftTopCorner="true"
-        app:optRoundCardLeftBottomCorner="false"
-        app:optRoundCardRightBottomCorner="false"
-        app:optRoundCardCornerRadius="40dp"
-        app:optRoundCardBackgroundColor="#ffffff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/back_linear_layout"
-        app:optRoundCardElevation="0dp">
+                <ImageView
+                    android:id="@+id/back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/baseline_arrow_back_ios_black_18" />
 
-    </com.github.captain_miao.optroundcardview.OptRoundCardView>
+                <TextView
+                    android:id="@+id/mess_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="cursive"
+                    android:gravity="center_vertical"
+                    android:text="Dhruvankur Mess"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/aldrich">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:elevation="0dp"
-        android:src="@drawable/mess_temp"
-        app:layout_constraintBottom_toTopOf="@+id/optRoundCardView"
-        app:layout_constraintEnd_toEndOf="@+id/optRoundCardView"
-        app:layout_constraintHorizontal_bias="0.926"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/optRoundCardView"
-        app:layout_constraintVertical_bias="0.373" />
-</android.support.constraint.ConstraintLayout>
+                </TextView>
+            </LinearLayout>
+
+            <com.github.captain_miao.optroundcardview.OptRoundCardView
+                android:id="@+id/optRoundCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:optRoundCardRightTopCorner="true"
+                app:optRoundCardLeftTopCorner="true"
+                app:optRoundCardLeftBottomCorner="false"
+                app:optRoundCardRightBottomCorner="false"
+                app:optRoundCardCornerRadius="40dp"
+                app:optRoundCardBackgroundColor="#ffffff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/back_linear_layout"
+                app:optRoundCardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/optRoundCardView"
+                    app:layout_constraintTop_toTopOf="@+id/optRoundCardView">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Menu"
+                        android:textColor="@android:color/black"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/aldrich"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="40dp"
+                        android:text="hello world"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="40dp"
+                        android:text="hello world"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="40dp"
+                        android:text="hello world"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="40dp"
+                        android:text="hello world"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="40dp"
+                        android:text="hello world"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="40dp"
+                        android:text="hello world"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="40dp"
+                        android:text="hello world"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="40dp"
+                        android:text="hello world"/>
+
+
+
+
+                </LinearLayout>
+
+            </com.github.captain_miao.optroundcardview.OptRoundCardView>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/mess_profile"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:elevation="10dp"
+                android:src="@drawable/mess_temp"
+                app:layout_constraintBottom_toTopOf="@+id/optRoundCardView"
+                app:layout_constraintEnd_toEndOf="@+id/optRoundCardView"
+                app:layout_constraintHorizontal_bias="0.926"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/optRoundCardView"
+                app:layout_constraintVertical_bias="0.373" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+</LinearLayout>

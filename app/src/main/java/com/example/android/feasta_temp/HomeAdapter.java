@@ -1,6 +1,7 @@
 package com.example.android.feasta_temp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -32,7 +33,17 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeViewHolder>{
     @NonNull
     @Override
     public HomeViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        final int position = i;
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.home_card_view, null);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), MessProfile.class);
+                intent.putExtra("mess_name", homeData.get(position).getMessName());
+                intent.putExtra("mess_image", homeData.get(position).getImgMess());
+                v.getContext().startActivity(intent);
+            }
+        });
         return new HomeViewHolder(view);
     }
 
