@@ -1,11 +1,13 @@
 package com.example.android.feasta_temp;
 
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.android.feasta_temp.mFragment.AccountFragment;
 import com.example.android.feasta_temp.mFragment.FavouriteFragment;
@@ -15,6 +17,8 @@ import com.example.android.feasta_temp.mFragment.SearchFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,9 +26,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         BottomNavigationView navigation =  findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
-
         loadFragment(new HomeFragment());
     }
+
 
     private boolean loadFragment(Fragment fragment){
         if(fragment != null){

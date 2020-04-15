@@ -1,5 +1,6 @@
 package com.example.android.feasta_temp.mFragment;
 
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,6 +11,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -32,37 +35,32 @@ public class HomeFragment extends Fragment {
     private JsonArrayRequest request;
     private RequestQueue requestQueue;
     private ArrayList<HomeData> homeData;
+    private ArrayList<HomeData> homeDataFull;
     private RecyclerView recyclerView;
-    private static final String TAG = "HomeFragment";
+
+    private TextView showAddress;
+    private LocationManager locationManager;
+    private String latitude, longitude;
+    private ProgressBar progressBar;
 
     @Nullable
     @Override
-    /*public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, null);
-    }*/
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
+        progressBar = view.findViewById(R.id.progress_recycler);
         homeData = new ArrayList<>();
         recyclerView = (RecyclerView) view.findViewById(R.id.home_recycler_view);
         jsonRequest();
-       /* RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.home_recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        HomeAdapter adapter = new HomeAdapter(this.getActivity(),getMylist());
-        recyclerView.setAdapter(adapter);*/
+        //getAddress();
         return view;
     }
 
     private void jsonRequest(){
+        progressBar.setVisibility(View.VISIBLE);
         request = new JsonArrayRequest(FEASTA_API_URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-                Log.d(TAG, "Inside json request method");
-                Log.e(TAG, "Inside json request method");
-                Log.i(TAG, "Inside json request method");
-                Log.v(TAG, "Inside json request method");
-
-
                 JSONObject jsonObject = null;
                 for(int i=0;i<response.length();i++)
                 {
@@ -72,13 +70,8 @@ public class HomeFragment extends Fragment {
                         data.setMessName(jsonObject.getString("mess_name"));
                         data.setMessRating(jsonObject.getString("rating"));
                         data.setMessType(jsonObject.getString("type"));
-                        data.setImgMess(jsonObject.getString("profile_img"));
+                        data.setImgMess("https://feasta.herokuapp.com/static/img/mess/test.jpg");
                         homeData.add(data);
-                        Log.d(TAG, "Data Fetched succesfully");
-                        Log.e(TAG, "Data Fetched succesfully");
-                        Log.i(TAG, "Data Fetched succesfully");
-                        Log.v(TAG, "Data Fetched succesfully");
-                        Log.w(TAG, "Data Fetched succesfully");
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -98,15 +91,10 @@ public class HomeFragment extends Fragment {
         requestQueue.add(request);
     }
 
-    /*private ArrayList<HomeData> getMylist() {
-        jsonRequest();
-        return homeData;
-    }*/
-
     public void setupRecyclerView(ArrayList<HomeData> homeData) {
-
         HomeAdapter adapter = new HomeAdapter(this.getActivity(),homeData);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         recyclerView.setAdapter(adapter);
+        progressBar.setVisibility(View.GONE);
     }
 }

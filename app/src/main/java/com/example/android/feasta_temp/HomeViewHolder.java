@@ -1,6 +1,8 @@
 package com.example.android.feasta_temp;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.telecom.Call;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +18,13 @@ public class HomeViewHolder extends RecyclerView.ViewHolder{
     public HomeViewHolder(View itemView){
 
         super(itemView);
-
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), MessProfile.class);
+                v.getContext().startActivity(intent);
+            }
+        });
         mMessName = (TextView)itemView.findViewById(R.id.mess_name);
         mRating = (TextView)itemView.findViewById(R.id.rating);
         mMessImage = (ImageView)itemView.findViewById(R.id.mess_image);

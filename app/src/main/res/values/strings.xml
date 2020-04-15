@@ -25,4 +25,5 @@
     <string name="mess">Mess Name</string>
     <string name="rating">4.0</string>
     <string name="type">Veg/Non-Veg</string>
+    <string name="timing">Timing :-</string>
 </resources>
